@@ -6,7 +6,7 @@ const Main = ({coins, balance, setBalance}) => {
     return (
         <main className={styles.main}>
             <Card balance={balance} setBalance={setBalance}/>
-            {coins? <CoinsList coins={coins}/>:null}
+            {coins.length>0? <CoinsList coins={coins}/>:<div>Loading ...</div>}
             
         </main>
     );

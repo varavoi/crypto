@@ -2,11 +2,13 @@ import React from 'react';
 import styles from './styles.module.css'
 import Card from '../components/Card/Card';
 import CoinsList from '../components/CoinsList/CoinsList';
-const Main = ({coins, balance, setBalance}) => {
+import FilterBlock from '../components/FilterBlock/FilterBlock';
+const Main = ({coins, setCoins,filteredCoins, balance, setBalance}) => {
     return (
         <main className={styles.main}>
             <Card balance={balance} setBalance={setBalance}/>
-            {coins.length>0? <CoinsList coins={coins}/>:<div>Loading ...</div>}
+            <FilterBlock coins={coins} setCoins={setCoins}/>
+            {coins.length>0? <CoinsList coins={filteredCoins}/>:<div>Loading ...</div>}
             
         </main>
     );

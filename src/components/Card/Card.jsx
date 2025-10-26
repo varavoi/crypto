@@ -9,7 +9,7 @@ const Card = ({balance, setBalance, ruBalance}) => {
                 <p>CRYPTO-FINANCE</p>
                 <button 
                 onMouseEnter={()=>console.log('---enter')}
-                onClick={()=>setBalance(prev=>prev+1000)}
+                onClick={setBalance}
                 >Add balance</button>
             </div>
             

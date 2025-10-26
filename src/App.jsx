@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import Header from "./components/Header/Header"
 import Main from "./pages/Main"
 import { getCoins } from "./api/api"
@@ -14,9 +14,9 @@ function App() {
         setFilteredCoins(data.coins)
       }
       fetchData()
-      
   },[])
-  console.log(coins)
+  
+  const addBalance = useCallback(()=>setBalance(prev=>prev+1000))
   return (
     <>
     <Header/>
@@ -24,7 +24,7 @@ function App() {
         coins={coins} 
         setCoins={setFilteredCoins} 
         balance={balance} 
-        setBalance={setBalance}
+        setBalance={addBalance}
         filteredCoins={filteredCoins}
      />
     </>

@@ -3,7 +3,6 @@ import './styles.css'
 import { CoinsContext } from '../../context/coinsContext';
 const CoinsList = () => {
     const {filteredCoins} = useContext(CoinsContext)
-    
     return (
         <ul className='coins-list'>
            {filteredCoins.map(coin=>(

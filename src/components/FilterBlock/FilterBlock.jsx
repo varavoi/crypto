@@ -1,15 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import './styles.css'
 import { CoinsContext } from '../../context/coinsContext';
+import { useFilterCoins } from '../../hooks/useFilterCoins';
 const FilterBlock = ({setCoins}) => {
-    const [value,setValue]=useState('')
     const {coins} = useContext(CoinsContext)
-    useEffect(()=>{
-        const filteredCoins = coins.filter(coin=>{
-            return coin.name.toLowerCase().includes(value.toLowerCase())
-        })
-        setCoins(filteredCoins)
-    },[value]);
+    const {setValue, value} = useFilterCoins(setCoins,coins)
     return (
        <div className='filter-block'>
             <input 

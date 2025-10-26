@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import './styles.css'
-const FilterBlock = ({coins, setCoins}) => {
+import { CoinsContext } from '../../context/coinsContext';
+const FilterBlock = ({setCoins}) => {
     const [value,setValue]=useState('')
-    const inputRef=useRef(null)
-    console.log(inputRef)
+    const {coins} = useContext(CoinsContext)
     useEffect(()=>{
         const filteredCoins = coins.filter(coin=>{
             return coin.name.toLowerCase().includes(value.toLowerCase())
@@ -13,7 +13,7 @@ const FilterBlock = ({coins, setCoins}) => {
     return (
        <div className='filter-block'>
             <input 
-                 value={value}
+                value={value}
                 onChange={(e)=>setValue(e.target.value)}
                 className='input' 
                 type="text" 
